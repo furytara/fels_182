@@ -1,0 +1,96 @@
+/* FORM */
+#signupform{
+  max-width: 62em;
+  margin: 25px auto;
+  height: auto;
+  position: relative;
+  top: 55px;
+  .title_of_form h2{
+    color: #3C3C3C;
+    font-family: 'Roboto', sans-serif;
+    font-size: 35px;
+    text-transform: uppercase;
+    position: relative;
+    left: 183px;
+  }
+  /* Form for type data */
+  .formnhap{
+    width: 512px;
+    height: 330px;
+    margin: 20px auto;
+    /* For input type text and password */
+    input[type="text"], input[type="password"]{
+      background-color: #f6f6f6;
+      font-family: "News706BT-RomanC", Georgia;
+      font-size: 20px;
+      outline: none;
+      border: 2px solid #f6f6f6;
+      color: #222222;
+      display: block;
+      margin: 0 0 20px 0;
+      width: 100%;
+      border-radius: 5px;
+      &:focus{
+        background-color: #DADADA;
+      }
+    }
+  }
+  input[type="submit"]{
+    width: 512px;
+    margin-left: 183px;
+    margin: 0 0 20px 183px;
+    background-color: #FF4040;
+    border-radius: 5px;
+    outline: none;
+    border: 0;
+    color: #fff;
+    font-weight: bold;
+    &:hover{
+      background-color: #F6201D;
+    }
+  }
+  /* Remind */
+  .remind{
+    border: 1px solid #DADADA;
+    width: 512px;
+    margin-left: 183px;
+    text-align: center;
+    padding: 20px;
+    font-size: 20px;
+  }
+  /* gender  */
+  .gender{
+    width: 512px;
+    margin: 20px auto;
+    & > select{
+      width: 512px;
+      padding: 20px;
+      font-size: 20px;
+    }
+  }
+}
+/* Dropdown list*/
+select {
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='50px' height='50px'><polyline points='46.139,15.518 25.166,36.49 4.193,15.519'/></svg>");
+  background-color: #3498DB;
+  background-repeat: no-repeat;
+  background-position: right 10px top 15px;
+  background-size: 16px 16px;
+  color: white;
+  padding: 12px;
+  width: 200px;
+  font-family: arial,tahoma;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -webkit-appearance: none;
+  border: 0;
+  outline: 0;
+  -webkit-transition: 0.3s ease all;
+  -moz-transition: 0.3s ease all;
+  transition: 0.3s ease all;
+}
