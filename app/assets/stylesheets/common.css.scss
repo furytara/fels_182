@@ -1,0 +1,266 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+body{
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.254em;
+  background: #FFFFFF;
+}
+
+a{
+  text-decoration: none;
+  color: #3B8BBA;
+  &:hover, &:visited, &:active{
+    color: #00baf2;
+    text-decoration: none;
+  }
+}
+
+/* CONTAINER */
+
+#container{
+  padding-left: 100px;
+  position: relative;
+  left: 0;
+  width: 100%;
+}
+
+/* MENU */
+
+#menu{
+  position: fixed;
+  height: 100%;
+  background-color: #191818;
+  width: 100px;
+  left: 0;
+}
+
+#menu ul{
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  li a{
+    font-family: 'Roboto', sans-serif;
+    display: block;
+    color: #fff;
+    padding: 57px 0 0;
+    text-align: center;
+  }
+}
+
+#menu .nav{
+  line-height: 2.9em;
+  height: 6em;
+  border-bottom: 1px solid #333;
+  &:-last-child{
+    line-height: 2.9em;
+    height: 6em;
+  }
+}
+
+#menu li:hover{
+  background-color: #454545;
+}
+
+#menu #home a{
+  background: url("home.png") no-repeat;
+  background-position: center 5px;
+}
+
+#menu #login a{
+  background: url("login-2.png") no-repeat;
+  background-position: center 5px;
+}
+
+#menu #register a{
+  background: url("register.png") no-repeat;
+  background-position: center 5px;
+}
+
+#menu #find a{
+  background: url("find.png") no-repeat;
+  background-position: center 5px;
+}
+
+#menu #info a{
+  background: url("info.png") no-repeat;
+  background-position: center 5px;
+}
+
+#menu #history a{
+  background: url("history.png") no-repeat;
+  background-position: center 5px;
+}
+
+/* HEADER */
+.banner{
+  padding: 15px 20px;
+  background: #00baf2;
+  height: 60px;
+  width: 100%;
+  #banner1{
+    position: relative;
+    bottom: 6px;
+    left: 6px;
+    color: #fff;
+    font-size: 27px;
+  }
+  .img_header{
+    position: relative;
+    bottom: 11px;
+    height: 50px;
+    width: 50px;
+  }
+}
+
+/* Content */
+
+#content{
+  max-width: 80%;
+  margin: 0 auto;
+  min-height: 1000px;
+  overflow: hidden;
+}
+
+input, #loginform .remind{
+  padding: 20px;
+  font-size: 20px;
+}
+
+#loginform{
+  max-width: 100%;
+  margin: 25px auto;
+  position: relative;
+  top: 55px;
+  h2{
+    color: #3C3C3C;
+    font-size: 50px;
+    text-transform: uppercase;
+    display: block;
+    width: 75%;
+    margin: 20px auto;
+  }
+  .form-sign{
+    width: 60%;
+    height: auto;
+    margin: 30px auto;
+    input[type="text"], input[type="password"]{
+      background-color: #f6f6f6;
+      font-family: "News706BT-RomanC", Georgia;
+      font-size: 30px;
+      outline: none;
+      border: 1px solid #f6f6f6;
+      color: #222222;
+      display: block;
+      margin: 30px auto;
+      width: 75%;
+      border-radius: 5px;
+      &:focus{
+        background-color: #DADADA;
+      }
+    }
+    input[type="submit"]{
+      width: 75%;
+      margin: 30px auto;
+      font-size: 25px;
+      display: block;
+      background-color: #FF4040;
+      border-radius: 5px;
+      outline: none;
+      border: 0;
+      color: #fff;
+      font-weight: bold;
+      &:hover{
+        background-color: #F6201D;
+      }
+      position: relative;
+    }
+    .remind{
+      border: 1px solid #DADADA;
+      width: 75%;
+      margin: 30px auto;
+      display: block;
+      text-align: center;
+    }
+  }
+}
+
+/* FOOTER */
+footer{
+  font-size: 85%;
+  border-top: 1px solid #E6E6E6;
+  color: #838383;
+  padding: 1em 3em;
+  &:before{
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    line-height: 0;
+    visibility: hidden;
+  }
+}
+
+.banner:after{
+  content: ".";
+  clear: both;
+  display: block;
+  visibility: hidden;
+  height: 0;
+  line-height: 0;
+}
+
+/* WHEREHEADER OF CONTAINT */
+.whereheader{
+  border-bottom: 2px solid gray;
+  height: 78px;
+  a{
+    text-transform: uppercase;
+    color: #333333;
+    font-size: 25px;
+    position: relative;
+    left: -2px;
+    &:hover, &:active{
+      color: #00baf2;
+    }
+  }
+  .large{
+    top: 40px;
+  }
+  &:before{
+    content: ".";
+    clear: both;
+    display: block;
+    visibility: hidden;
+    height: 0;
+    line-height: 0;
+  }
+  ul{
+    margin: 10px 0 20px 0;
+    list-style-type: none;
+    position: relative;
+    top: 60px;
+  }
+  li{
+    display: inline;
+    a{
+      font-size: 19px;
+      border-right: 2px solid gray;
+      padding: 5px;
+    }
+    &.last > a{
+      font-size: 19px;
+      padding: 5px;
+      border-right: none;
+    }
+  }
+}
