@@ -50,6 +50,7 @@ en:
   delete: "Delete"
   create: "Create"
   confirm: "Are you sure?"
+  not-exist-page: "The page you are looking is not exist"
   admin:
     categories:
       name-singular: "Category"
@@ -63,3 +64,9 @@ en:
         new-category: "Create new category"
       create:
         success: "Category created"
+      edit:
+        edit-category: "Edit category"
+      update:
+        success: "Category updated"
+
+
