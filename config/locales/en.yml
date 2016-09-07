@@ -68,5 +68,8 @@ en:
         edit-category: "Edit category"
       update:
         success: "Category updated"
+      destroy:
+        success: "Category deleted"
+        fail: "This category contains words and cannot be deleted"
 
 
