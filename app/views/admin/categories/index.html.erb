@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="top-navigation">
+    <span class="form-inline ">
+      <span class="header-text"><%= t "admin.categories.name-plural" %></span>
+      <a href="<%= new_admin_category_path %>" class="button-right">
+        <button class="btn btn-primary"><%= t ".add-new" %></button>
+      </a>
+    </span>
+  </div>
+  <table class="table table-bordered table-hover">
+    <thead>
+      <tr>
+        <th class="header-table"><%= t "admin.categories.name-header" %></th>
+        <th class="header-table"><%= t "admin.categories.description-header" %></th>
+        <th class="header-table" colspan="3"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if @categories.any? %>
+        <%= render @categories %>
+        <%= will_paginate @categories %>
+      <% else %>
+        <tr>
+          <td colspan="5"><%= t ".no-record-found" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <br>
+</div>

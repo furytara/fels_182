@@ -44,3 +44,22 @@ en:
   female: "Female"
   error_message: "The form contains %{number} error."
   Nil_user: "This User is not real, please try another User"
+  form-contains : "The form contains"
+  show: "Show"
+  edit: "Edit"
+  delete: "Delete"
+  create: "Create"
+  confirm: "Are you sure?"
+  admin:
+    categories:
+      name-singular: "Category"
+      name-plural: "Categories"
+      name-header: "Name"
+      description-header: "Description"
+      index:
+        add-new: "Add new"
+        no-record-found: "No category found"
+      new:
+        new-category: "Create new category"
+      create:
+        success: "Category created"

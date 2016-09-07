@@ -34,6 +34,11 @@ a{
   width: 100%;
 }
 
+.main-container {
+  padding: 10px 100px 10px 100px;
+  min-height: 700px;
+}
+
 /* MENU */
 
 #menu{
@@ -98,6 +103,11 @@ a{
 
 #menu #history a{
   background: url("history.png") no-repeat;
+  background-position: center 5px;
+}
+
+#menu #category a{
+  background: url("category.png") no-repeat;
   background-position: center 5px;
 }
 
@@ -206,6 +216,7 @@ footer{
     }
   }
 }
+
 /* Error message */
 #error_explanation{
   color: red;
@@ -222,4 +233,28 @@ footer{
   .form-control {
     color: $state-danger-text;
   }
+}
+
+/* TABLE COMMON */
+.header-table {
+  background-color: rgb(76, 175, 80);
+  color: white;
+}
+
+/* FORM COMMON */
+.top-navigation {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.button-right {
+  float: right;
+}
+
+.header-text {
+  font-size: 30px;
+}
+
+.resize-vertical {
+  resize: vertical;
 }

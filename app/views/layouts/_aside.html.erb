@@ -7,6 +7,10 @@
       <li id="find" class="nav"><a href="#"><%= t "find" %></a></li>
       <li id="info" class="nav"><a href="#"><%= t "info" %></a></li>
       <li id="history" class="nav"><a href="#"><%= t "contact" %></a></li>
+      <li id="category" class="nav">
+        <%= link_to t("admin.categories.name-singular"),
+          admin_categories_path %>
+      </li>
     </ul>
   </div>
 </aside>
