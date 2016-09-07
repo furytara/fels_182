@@ -1,5 +1,5 @@
 class Admin::CategoriesController < ApplicationController
-  before_action :load_category, only: [:edit, :update]
+  before_action :load_category, only: [:edit, :update, :destroy]
 
   def index
     @categories = Category.update_desc
@@ -30,6 +30,16 @@ class Admin::CategoriesController < ApplicationController
     else
       render :new
     end
+  end
+
+  def destroy
+    if @category.valid_to_delete?
+      flash[:danger] = t ".fail"
+    else
+      @category.destroy
+      flash[:success] = t ".success"
+    end
+    redirect_to admin_categories_path
   end
 
   private
