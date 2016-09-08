@@ -19,6 +19,21 @@
       margin: 20px auto;
       width: 100%;
     }
+    .gravatar_edit{
+      text-align: center;
+      margin-bottom: 20px;
+      img{
+        border-radius: 50%;
+        width: 130px;
+        height: 130px;
+        border-radius: 50%;
+      }
+      a{
+        position: relative;
+        top: 55px;
+        right: 10px;
+      }
+    }
     /* For input type text and password */
     input[type="text"], input[type="password"], input[type="email"]{
       background-color: #f6f6f6;

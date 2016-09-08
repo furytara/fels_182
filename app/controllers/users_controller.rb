@@ -1,10 +1,13 @@
 class UsersController < ApplicationController
+  before_action :require_logged_in_user, only: [:edit,:update]
+  before_action :correct_user, only: [:edit, :update]
+  before_action :load_user, only: [:show, :edit, :update]
+
+  def index
+    @users = User.paginate page: params[:page]
+  end
+
   def show
-    @user = User.find_by id: params[:id]
-    if @user.nil?
-      flash[:danger] = t "Nil_user"
-      redirect_to root_url
-    end
   end
 
   def new
@@ -19,6 +22,18 @@ class UsersController < ApplicationController
       redirect_to @user
     else
       render :new
+    end
+  end
+
+  def edit
+  end
+
+  def update
+    if @user.update_attributes user_params
+      flash[:success] = t "update_success"
+      redirect_to root_url
+    else
+      render :edit
     end
   end
 

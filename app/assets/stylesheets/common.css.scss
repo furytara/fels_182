@@ -91,6 +91,11 @@ a{
   background-position: center 5px;
 }
 
+#menu #allusers a{
+  background: url("all_users.png") no-repeat;
+  background-position: center 5px;
+}
+
 #menu #find a{
   background: url("find.png") no-repeat;
   background-position: center 5px;
@@ -184,7 +189,6 @@ footer{
     color: #333333;
     font-size: 25px;
     position: relative;
-    left: -2px;
     &:hover, &:active{
       color: #00baf2;
     }
@@ -264,4 +268,23 @@ footer{
 
 #search-form {
   margin-bottom: 10px;
+}
+/* User index */
+.users {
+  list-style: none;
+  margin: 0;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-bottom: 1px solid $gray-lighter;
+  }
+}
+/* Gravatarfor */
+.gravatar_edit{
+  margin-bottom: 20px;
+  img{
+    border-radius: 50%;
+    width: 130px;
+    height: 130px;
+  }
 }

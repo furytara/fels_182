@@ -1,5 +1,27 @@
 <% provide :title, @user.fullname %>
-<h1>
-  <%= gravatar_for @user %>
-  <%= @user.fullname %>
-</h1>
+<div id="content">
+  <div class="whereheader">
+    <% if logged_in? %>
+      <%= link_to t("activity"),
+        @user, class: "large" %>
+    <% else %>
+      <%= link_to "#{t("profile_of")} #{@user.fullname}",
+        @user, class: "large" %>
+    <% end %>
+  </div>
+  <div id="profileform">
+    <div class="left_form">
+      <div class="gravatar_edit">
+        <%= gravatar_for @user %>
+      </div>
+      <div class="follower_followed">
+      </div>
+      <div class="information">
+        <h1><%= label_tag "name", @user.fullname, class: "name" %><h1>
+        <h3><%= label_tag "name", @user.email, class: "email" %></h3>
+      </div>
+    </div>
+    <div class="right_form">
+    </div>
+  </div>
+</div>

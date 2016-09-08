@@ -1,0 +1,35 @@
+#profileform{
+  max-width: 100%;
+  margin: 25px auto;
+  height: auto;
+  position: relative;
+  top: 55px;
+  .left_form{
+    float: left;
+    width: 27%;
+    height: auto;
+    border-right: 2px solid #09aacc;
+    background: #F1F1F1;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    .gravatar_edit{
+      text-align: center;
+      img{
+        margin-top: 5px;
+        border-width: 5px;
+        border: 4px solid #09aacc;
+      }
+    }
+    .information{
+      text-align: center;
+      .name{
+        font-family: 'Source Sans Pro', sans-serif;
+        font-size: 30px;
+      }
+      .email{
+        font-family: "News706BT-RomanC", Georgia;
+        font-size: 20px;
+      }
+    }
+  }
+}
