@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  root "static_pages#home"
-  resources :users
+  root             "sessions#new"
   namespace :admin do
     resources :categories
   end
+  resources :users
+  resources :sessions, only: [:new, :create, :destroy]
 end

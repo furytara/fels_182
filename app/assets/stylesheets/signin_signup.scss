@@ -92,3 +92,16 @@ select {
   -moz-transition: 0.3s ease all;
   transition: 0.3s ease all;
 }
+/* Checkbox */
+.checkbox {
+  span{
+    font-family: "News706BT-RomanC", Georgia;
+    font-size: 20px;
+    margin-left: 20px;
+    font-weight: normal;
+  }
+}
+#session_remember_me {
+  width: auto;
+  margin-left: 0;
+}
