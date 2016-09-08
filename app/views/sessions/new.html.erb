@@ -1,0 +1,31 @@
+<% provide :title, t("sign_in") %>
+<div id="content">
+  <div class="whereheader">
+    <%= link_to t("sign_in"), "#", class: "large" %>
+    <ul>
+      <li><%= link_to t("sign_in"), "#" %></li>
+      <li class="last"><%= link_to t("sign_up"), "#" %></li>
+    </ul>
+  </div>
+  <div id="loginform">
+    <%= form_for :session, url: sessions_path do |f| %>
+      <div class="form-sign">
+        <h2><%= t "sign_in" %></h2>
+        <%= f.text_field :email, placeholder: t("email_placeholder") %>
+        <%= f.password_field :password,
+          placeholder: t("password_placeholder") %>
+        <%= f.label :remember_me, class: "checkbox inline" do %>
+          <%= f.check_box :remember_me %>
+          <span><%= t "remember_me" %></span>
+        <% end %>
+        <%= f.submit t("sign_in") %>
+        <div class="remind">
+          <span>
+            <%= t "remind_sign_in" %>
+            <%= link_to t("sign_up"), "#" %>
+          </span>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
