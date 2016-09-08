@@ -5,6 +5,12 @@ class Category < ActiveRecord::Base
   validates :name, presence: true, length: {maximum: 140}
 
   def valid_to_delete?
-    self.words.count > 0
+    self.words.any?
+  end
+
+  class << self
+    def search search
+      where("name LIKE ?", "%#{search}%").update_desc
+    end
   end
 end

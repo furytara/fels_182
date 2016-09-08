@@ -29,6 +29,7 @@ en:
   edit: "Edit"
   delete: "Delete"
   create: "Create"
+  search: "Search"
   confirm: "Are you sure?"
   not-exist-page: "The page you are looking is not exist"
   admin:
