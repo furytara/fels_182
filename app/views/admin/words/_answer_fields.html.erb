@@ -1,0 +1,12 @@
+<div class="input-group">
+  <span class="input-group-addon">
+    <%= f.radio_button :is_true, :true, class: "answer-option" %>
+  </span>
+  <%= f.text_field :content, class:"form-control" %>
+  <%= f.hidden_field :_destroy %>
+  <span class="input-group-addon">
+    <%= link_to t("remove"), "#", class: "remove_fields pull-right" %>
+  </span>
+</div>
+
+
