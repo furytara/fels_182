@@ -1,0 +1,17 @@
+<% provide :title, t("category_title") %>
+<div id="content">
+  <div class="whereheader">
+    <%= link_to t("category_title"), categories_path, class: "large" %>
+  </div>
+  <div id="user_category_form">
+    <% @categories.each do |category| %>
+      <div class="panel panel-success" id="category_form">
+        <div class="panel-heading"><%= category.name %></div>
+        <div class="panel-body"><%= category.description %></div>
+        <%= button_to t("start"), category_lessons_path(category_id: category.id),
+          method: :post, class: "btn btn-success", id: "button_start" %>
+      </div>
+    <% end %>
+    <%= will_paginate @categories %>
+  </div>
+</div>

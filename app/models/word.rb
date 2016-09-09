@@ -16,6 +16,15 @@ class Word < ActiveRecord::Base
     self.lessons.any?
   end
 
+  scope :unlearned, -> do
+    where :category_id => Category.joins(:lessons, :words)
+      .where.not(lessons: {is_finished: true}).distinct
+  end
+
+  scope :randomize, ->(word_per_page) do
+    order("RANDOM()").limit(word_per_page)
+  end
+
   def correct_answer
     answer = self.answers.detect {|answer| answer.is_true?}
     answer.content

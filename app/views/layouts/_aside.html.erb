@@ -15,8 +15,13 @@
           edit_user_path(current_user) %></li>
         <li id="history" class="nav"><%= link_to t("contact"), "#" %></li>
         <li id="category" class="nav">
-          <%= link_to t("admin.categories.name-singular"),
-            admin_categories_path %>
+          <% if current_user.is_admin? %>
+            <%= link_to t("admin.categories.name-singular"),
+              admin_categories_path %>
+          <% else %>
+            <%= link_to t("category_title"),
+              categories_path %>
+          <% end %>
         </li>
       <% else %>
         <li id="home" class="nav"><%= link_to t("home_page"), root_path %></li>

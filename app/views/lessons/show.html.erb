@@ -1,0 +1,24 @@
+<% provide :title, @lesson.category.name %>
+<div id="content">
+  <div class="whereheader">
+    <%= link_to @lesson.category.name,
+      category_lesson_path(@lesson.category, @lesson), class: "large" %>
+  </div>
+  <div id="lesson_form">
+    <%= form_for [:category, @lesson], url: "#" do |f| %>
+      <%= f.fields_for :results do |results_field| %>
+        <h2><%= results_field.object.word.content %></h2>
+        <ul>
+          <% results_field.object.word.answers.each do |answer| %>
+            <li>
+              <%= results_field.radio_button :answer_id, answer.id %>
+              <label><%= answer.content %></label>
+            </li>
+          <% end %>
+        </ul>
+      <% end %>
+      <%= f.submit t("finish"), class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
+
