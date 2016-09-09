@@ -2,8 +2,20 @@ class Admin::CategoriesController < ApplicationController
   before_action :load_category, only: [:edit, :update, :destroy]
 
   def index
-    @categories = Category.update_desc
-      .paginate(page: params[:page]).per_page Settings.page_size
+    if params[:search]
+      @categories = Category.search params[:search]
+    else
+      @categories = Category.update_desc
+    end
+
+    page = params[:page].to_i
+    unless @categories.size > (Settings.page_size * (page - 1))
+      page -= 1
+    end
+    page = 1 if page <= 0
+
+    @categories = @categories.paginate(page: page.to_s)
+      .per_page Settings.page_size
   end
 
   def new
@@ -39,7 +51,8 @@ class Admin::CategoriesController < ApplicationController
       @category.destroy
       flash[:success] = t ".success"
     end
-    redirect_to admin_categories_path
+    redirect_to admin_categories_path(search: params[:search],
+      page: params[:page])
   end
 
   private
