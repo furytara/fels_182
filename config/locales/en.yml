@@ -36,6 +36,7 @@ en:
   all: "All"
   not-exist-page: "The page you are looking is not exist"
   required-two-answers: "Question must has at least two answers"
+  warning-remove-correct-ans: "Cannot remove correct answer"
   model:
     word:
       select-an-answer: "Please select at least one answer"
@@ -65,6 +66,11 @@ en:
       new:
         new-word: "Create new word"
         answers: "Answers"
+      edit:
+        edit-word: "Edit word"
+        answers: "Answers"
+      update:
+        success: "Word updated"
       create:
         success: "Word created"
 

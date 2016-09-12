@@ -1,7 +1,14 @@
 <div class="main-container">
-  <h1 class="text-center "><%= t ".word-list" %></h1>
+  <div class="form-inline">
+    <h1 class="text-center "><%= t ".word-list" %></h1>
+  </div>
   <div class="search-form">
     <%= render "filter_form" %>
+  </div>
+  <div id="new-word">
+    <a href="<%= new_admin_word_path %>" class="pull-right">
+      <button class="btn btn-primary"><%= t ".add-new" %></button>
+    </a>
   </div>
   <% if @words.any? %>
     <div id="words-container">
