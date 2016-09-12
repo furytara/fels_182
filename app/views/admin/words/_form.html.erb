@@ -1,0 +1,30 @@
+<div class="row">
+  <%= form_for [:admin, @word] do |f| %>
+    <div class="col-md-6 col-md-offset-3 form-group">
+      <%= render "shared/error_messages", object: f.object %>
+    </div>
+    <div class="col-md-6 col-md-offset-3 form-group">
+      <%= f.label :category %><br>
+      <%= f.collection_select :category_id, Category.all, :id, :name, {}, {class: "form-control"} %>
+    </div>
+    <div class="col-md-6 col-md-offset-3 form-group">
+      <%= f.label :content %><br>
+      <%= f.text_field :content, class: "form-control" %>
+    </div>
+    <div class="col-md-6 col-md-offset-3 form-group">
+      <label><%= t ".answers" %></label>
+      <%= link_to_add_fields "Add answers", f, :answers %>
+    </div>
+    <div id="answers-block" class="col-md-6 col-md-offset-3 form-group">
+      <%= f.fields_for :answers do |answers_for_form| %>
+        <%= render "answer_fields", f: answers_for_form %>
+      <% end %>
+    </div>
+    <div class="col-md-6 col-md-offset-3 form-group text-center">
+      <%= f.submit yield(:button_text), class: "btn btn-primary text-center" %>
+    </div>
+  <% end %>
+  <%= hidden_field_tag "at-least-two-answers-msg", t("required-two-answers") %>
+</div>
+
+

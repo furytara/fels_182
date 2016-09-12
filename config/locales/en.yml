@@ -28,10 +28,15 @@ en:
   show: "Show"
   edit: "Edit"
   delete: "Delete"
+  remove: "Remove"
   create: "Create"
   search: "Search"
   confirm: "Are you sure?"
   not-exist-page: "The page you are looking is not exist"
+  required-two-answers: "Question must has at least two answers"
+  model:
+    word:
+      select-an-answer: "Please select at least one answer"
   admin:
     categories:
       name-singular: "Category"
@@ -52,5 +57,12 @@ en:
       destroy:
         success: "Category deleted"
         fail: "This category contains words and cannot be deleted"
+    words:
+      new:
+        new-word: "Create new word"
+        answers: "Answers"
+      create:
+        success: "Word created"
+
   remember_me: "Remember me"
   invalid_password: "Invalid email or password submition"
