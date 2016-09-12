@@ -1,6 +1,8 @@
 class Admin::WordsController < ApplicationController
   def index
-    @words = Word.all
+    @categories = Category.alphabet
+    @words = Word.by_category(params[:category_id])
+      .paginate(page: params[:page]).per_page Settings.word_per_page
   end
 
   def new

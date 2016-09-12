@@ -6,6 +6,14 @@ class Word < ActiveRecord::Base
   validates :content, presence: true, length: {maximum: 50}
   validate :checked_answer, on: :create
   accepts_nested_attributes_for :answers, allow_destroy: true
+  scope :by_category, ->(category_id) do
+    where(category_id: category_id) unless category_id.blank?
+  end
+
+  def correct_answer
+    answer = self.answers.detect {|answer| answer.is_true?}
+    answer.content
+  end
 
   private
   def checked_answer

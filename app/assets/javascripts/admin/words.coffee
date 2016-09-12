@@ -16,4 +16,3 @@ $(document).ready ->
     regexp = new RegExp($(this).data('id'), 'g')
     $('#answers-block').append($(this).data('fields').replace(regexp, time))
     event.preventDefault()
-
