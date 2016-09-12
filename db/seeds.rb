@@ -28,6 +28,12 @@ categories = Category.order(:created_at).take(10)
 10.times do
   content = Faker::Lorem.word
   categories.each do |category|
-    category.words.create!(content: content)
+    right_answer = rand(0..Settings.answers_num_default-1)
+    word = Word.new(content: content, category: category)
+    Settings.answers_num_default.times do |i|
+      answer = Answer.new(content: content, is_true: i == right_answer)
+      word.answers << answer
+    end
+    word.save
   end
 end

@@ -31,7 +31,9 @@ en:
   remove: "Remove"
   create: "Create"
   search: "Search"
+  filter: "Filter"
   confirm: "Are you sure?"
+  all: "All"
   not-exist-page: "The page you are looking is not exist"
   required-two-answers: "Question must has at least two answers"
   model:
@@ -58,6 +60,8 @@ en:
         success: "Category deleted"
         fail: "This category contains words and cannot be deleted"
     words:
+      index:
+        word-list: "Word List"
       new:
         new-word: "Create new word"
         answers: "Answers"

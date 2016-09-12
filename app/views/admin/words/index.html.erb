@@ -1,1 +1,18 @@
-Index
+<div class="main-container">
+  <h1 class="text-center "><%= t ".word-list" %></h1>
+  <div class="search-form">
+    <%= render "filter_form" %>
+  </div>
+  <% if @words.any? %>
+    <div id="words-container">
+      <%= render @words %>
+    </div>
+    <div class="pagination-container text-center">
+      <%= will_paginate @words %>
+    </div>
+  <% else %>
+    <h2><%= t ".no-record-found" %></h2>
+  <% end %>
+</div>
+
+

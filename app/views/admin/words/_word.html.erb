@@ -1,0 +1,9 @@
+<div class="word">
+  <span class="word-question"><%= word.content %></span>
+  <span class="word-answer"><%= word.correct_answer %></span>
+  <div class="word-action">
+    <%= link_to t("edit"), edit_admin_word_path(word) %>
+    <%= link_to t("delete"), admin_word_path(word), method: :delete,
+      data: {confirm: t("confirm")}, class: "remove-word" %>
+  </div>
+</div>
