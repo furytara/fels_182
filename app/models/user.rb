@@ -14,8 +14,8 @@ class User < ActiveRecord::Base
     format: {with: VALID_EMAIL_REGEX},
     uniqueness: {case_sensitive: false}
   validates :fullname, presence: true, length: {maximum: 50}
-  validates :password, length: {minimum: 6}
   has_secure_password
+  validates :password, length: {minimum: 6}
 
   class << self
     def digest string
@@ -40,5 +40,9 @@ class User < ActiveRecord::Base
 
   def forget
     update_attributes remember_digest: nil
+  end
+
+  def is_user? user
+    self == user
   end
 end

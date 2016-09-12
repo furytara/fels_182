@@ -1,17 +1,18 @@
 <% provide :title, t("sign_up") %>
 <div id="content">
   <div class="whereheader">
-    <%= link_to t("sign_up"), "#", class: "large" %>
-    <ul>
-      <li><%= link_to t("sign_in"), "#" %></li>
-      <li class="last"><%= link_to t("sign_up"), "#" %></li>
-    </ul>
+    <%= link_to t("edit_profile"), "#", class: "large" %>
   </div>
   <div id="signupform">
     <%= form_for @user do |f| %>
       <%= render "shared/error_messages", object: f.object %>
       <div class="form-sign">
-        <h2><%= t "sign_up" %></h2>
+        <div class="gravatar_edit">
+          <%= gravatar_for @user %>
+          <%= link_to t("change_img"), "http://gravatar.com/emails",
+            targets: "_blank" %>
+        </div>
+
         <%= f.text_field :fullname, placeholder: t("full_name_placeholder") %>
         <%= f.email_field :email, placeholder: t("email_placeholder") %>
         <%= f.password_field :password,
@@ -21,13 +22,7 @@
         <div class="gender">
           <%= f.select :gender, [[t("male"), true], [t("female"), false]] %>
         </div>
-        <%= f.submit t("sign_up") %>
-        <div class="remind">
-          <span>
-            <%= t "remind_sign_up" %>
-            <%= link_to t("sign_in"), new_session_path %>
-          </span>
-        </div>
+        <%= f.submit t("save_change") %>
       </div>
     <% end %>
   </div>

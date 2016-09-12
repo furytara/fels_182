@@ -1,0 +1,12 @@
+<% provide :title, t("index_user") %>
+<div id="content">
+  <div class="whereheader">
+    <%= link_to t("index_user"), root_path, class: "large" %>
+  </div>
+  <div id="signupform">
+    <ul class="users">
+      <%= render @users %>
+    </ul>
+    <%= will_paginate %>
+  </div>
+</div>
