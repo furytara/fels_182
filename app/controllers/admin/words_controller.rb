@@ -1,6 +1,8 @@
 class Admin::WordsController < ApplicationController
+  before_action :load_word, only: [:edit, :update, :destroy]
+  before_action :load_categories, except: [:destroy]
+
   def index
-    @categories = Category.alphabet
     @words = Word.by_category(params[:category_id])
       .paginate(page: params[:page]).per_page Settings.word_per_page
   end
@@ -20,10 +22,37 @@ class Admin::WordsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @word.update_attributes word_params
+      flash[:success] = t ".success"
+      redirect_to admin_words_path
+    else
+      render :edit
+    end
+  end
+
   private
+  def load_word
+    @word = Word.find_by id: params[:id]
+    unless @word
+      flash[:danger] = t "not-exist-page"
+      redirect_to admin_words_path
+    end
+  end
+
+  def load_categories
+    @categories = Category.alphabet
+  end
+
   def word_params
     params.require(:word).permit :content, :category_id,
-      answers_attributes: [:content, :is_true]
+      answers_attributes: [:id, :content, :is_true, :_destroy]
   end
+
+
+
 end
 

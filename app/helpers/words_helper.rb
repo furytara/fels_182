@@ -8,4 +8,8 @@ module WordsHelper
     link_to name, "", class: "add_fields btn btn-info active pull-right",
       data: {id: id, fields: fields.gsub("\n", "")}
   end
+
+  def disable_select_category? action
+    action == :edit.to_s
+  end
 end
