@@ -2,8 +2,12 @@
   <span class="word-question"><%= word.content %></span>
   <span class="word-answer"><%= word.correct_answer %></span>
   <div class="word-action">
-    <%= link_to t("edit"), edit_admin_word_path(word) %>
-    <%= link_to t("delete"), admin_word_path(word), method: :delete,
-      data: {confirm: t("confirm")}, class: "remove-word" %>
+    <div class="edit-btn">
+      <%= link_to t("edit"), edit_admin_word_path(word),
+        class: "btn btn-primary" %>
+    </div>
+    <%= link_to t("delete"), admin_word_path(word,
+      category_id: params[:category_id], page: params[:page]), method: :delete,
+      data: {confirm: t("confirm")}, class: "btn btn-danger" %>
   </div>
 </div>

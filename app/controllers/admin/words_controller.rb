@@ -4,7 +4,15 @@ class Admin::WordsController < ApplicationController
 
   def index
     @words = Word.by_category(params[:category_id])
-      .paginate(page: params[:page]).per_page Settings.word_per_page
+
+    page = params[:page].to_i
+    unless @words.size > (Settings.word_per_page * (page - 1))
+      page -= 1
+    end
+    page = 1 if page <= 0
+
+    @words = @words.paginate(page: page.to_i).
+      per_page Settings.word_per_page
   end
 
   def new
@@ -32,6 +40,17 @@ class Admin::WordsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    if @word.invalid_to_delete?
+      flash[:danger] = t ".fail"
+    else
+      @word.destroy
+      flash[:success] = t ".success"
+    end
+    redirect_to admin_words_path category_id: params[:category_id],
+      page: params[:page]
   end
 
   private

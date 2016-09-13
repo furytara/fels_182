@@ -10,16 +10,18 @@
       <button class="btn btn-primary"><%= t ".add-new" %></button>
     </a>
   </div>
-  <% if @words.any? %>
-    <div id="words-container">
-      <%= render @words %>
-    </div>
-    <div class="pagination-container text-center">
-      <%= will_paginate @words %>
-    </div>
-  <% else %>
-    <h2><%= t ".no-record-found" %></h2>
-  <% end %>
+  <div id="words-section">
+    <% if @words.any? %>
+      <div id="words-container">
+        <%= render @words %>
+      </div>
+      <div class="pagination-container text-center">
+        <%= will_paginate @words %>
+      </div>
+    <% else %>
+      <h2><%= t ".no-record-found" %></h2>
+    <% end %>
+  </div>
 </div>
 
 
