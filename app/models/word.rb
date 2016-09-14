@@ -12,6 +12,10 @@ class Word < ActiveRecord::Base
     where(condition).order updated_at: :desc
   end
 
+  def invalid_to_delete?
+    self.lessons.any?
+  end
+
   def correct_answer
     answer = self.answers.detect {|answer| answer.is_true?}
     answer.content

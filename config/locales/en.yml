@@ -73,6 +73,9 @@ en:
         success: "Word updated"
       create:
         success: "Word created"
+      destroy:
+        success: "Word deleted"
+        fail: "This word is used in lesson and cannot be deleted"
 
   remember_me: "Remember me"
   invalid_password: "Invalid email or password submition"
