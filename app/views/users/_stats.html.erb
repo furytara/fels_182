@@ -1,0 +1,9 @@
+<% @user ||= current_user %>
+<div class="stats">
+  <%= link_to "#{@user.following.count} Followers",
+    relationships_path(id: @user.id, type: :following),
+    remote: :true, id: "following" %>
+  <%= link_to "#{@user.followers.count} Followers",
+    relationships_path(id: @user.id, type: :followers),
+    remote: :true, id: "followers" %>
+</div>

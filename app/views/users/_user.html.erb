@@ -1,4 +1,7 @@
 <li>
   <%= gravatar_for user%>
   <%= link_to user.fullname, user %>
+  <% if current_user.is_admin? && !current_user.is?(user) %>
+    | <%= link_to t("delete"), user, method: "delete", data: {confirm: "You sure?"} %>
+  <% end %>
 </li>

@@ -1,0 +1,6 @@
+$('#follow_form').html('<%= escape_javascript(render("users/unfollow")) %>')
+$('#followers').text('<%= @user.followers.count %> Followers')
+if ($('#follow-users:visible').size() > 0)
+  $('#activities-body').html('<%=
+    escape_javascript(render partial: "users/show_follow",
+    locals: {users: @user.followers}) %>')

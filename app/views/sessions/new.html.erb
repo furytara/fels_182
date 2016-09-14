@@ -1,12 +1,5 @@
 <% provide :title, t("sign_in") %>
 <div id="content">
-  <div class="whereheader">
-    <%= link_to t("sign_in"), "#", class: "large" %>
-    <ul>
-      <li><%= link_to t("sign_in"), "#" %></li>
-      <li class="last"><%= link_to t("sign_up"), "#" %></li>
-    </ul>
-  </div>
   <div id="loginform">
     <%= form_for :session, url: sessions_path do |f| %>
       <div class="form-sign">

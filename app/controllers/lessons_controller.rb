@@ -1,4 +1,5 @@
 class LessonsController < ApplicationController
+  before_action :require_logged_in_user
   before_action :load_lesson, only: [:edit, :update, :show]
 
   def create

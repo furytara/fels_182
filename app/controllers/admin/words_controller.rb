@@ -1,4 +1,5 @@
 class Admin::WordsController < ApplicationController
+  before_action :require_logged_in_user, :require_logged_in_as_admin
   before_action :load_word, only: [:edit, :update, :destroy]
   before_action :load_categories, except: [:destroy]
 

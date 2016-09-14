@@ -32,4 +32,17 @@
       }
     }
   }
+  .right_form{
+    float: left;
+    width: 73%;
+    height: auto;
+    padding: 10px;
+  }
+}
+
+#follow-users {
+  li {
+    list-style: none;
+    margin: 5px;
+  }
 }

@@ -21,6 +21,15 @@ User.create! fullname: "Admin User",
                password_confirmation: password
 end
 
+# Following relationships
+users = User.all
+user  = users.first
+following = users[2..20]
+followers = users[3..10]
+following.each {|followed| user.follow(followed)}
+followers.each {|follower| follower.follow(user)}
+
+
 # Categories
 40.times do
   name  = Faker::Name.name

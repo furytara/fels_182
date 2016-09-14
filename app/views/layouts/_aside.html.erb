@@ -8,28 +8,34 @@
         <li id="logout" class="nav"><%= link_to t("sign_out"),
           session_path(current_user), method: :delete %>
         </li>
-        <li id="allusers" class="nav">
-          <%= link_to t("all_users"), root_path %>
-        </li>
         <li id="info" class="nav"><%= link_to t("profile"),
           edit_user_path(current_user) %></li>
-        <li id="history" class="nav"><%= link_to t("contact"),
-          lessons_path %></li>
-        <li id="category" class="nav">
-          <% if current_user.is_admin? %>
-            <%= link_to t("admin.categories.name-singular"),
-              admin_categories_path %>
-          <% else %>
-            <%= link_to t("category_title"),
-              categories_path %>
-          <% end %>
+        <li id="allusers" class="nav">
+          <%= link_to t("all_users"), users_path %>
         </li>
+        <li id="lesson" class="nav">
+          <%= link_to t("lessons"), categories_path %>
+        </li>
+        <li id="history" class="nav">
+          <%= link_to t("history"), lessons_path %>
+        </li>
+        <li id=word class="nav">
+           <%= link_to t("word_title"), words_path %>
+        </li>
+        <% if current_user.is_admin? %>
+          <li class="admin"><%= t "admin-title" %></li>
+          <li id="admin-category" class="nav">
+            <%= link_to t("category_title"), admin_categories_path %>
+          </li>
+          <li id="admin-word" class="nav">
+            <%= link_to t("word_title"), admin_words_path %>
+          </li>
+        <% end %>
       <% else %>
-        <li id="home" class="nav"><%= link_to t("home_page"), root_path %></li>
         <li id="login" class="nav">
-          <%= link_to t("sign_in"), new_session_path %></li>
+          <%= link_to t("sign_in"), login_path %></li>
         <li id="register" class="nav">
-          <%= link_to t("sign_up"), new_user_path %>
+          <%= link_to t("sign_up"), signup_path %>
         </li>
       <% end %>
     </ul>

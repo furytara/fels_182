@@ -14,14 +14,19 @@
       <div class="gravatar_edit">
         <%= gravatar_for @user %>
       </div>
-      <div class="follower_followed">
-      </div>
       <div class="information">
         <h1><%= label_tag "name", @user.fullname, class: "name" %><h1>
         <h3><%= label_tag "name", @user.email, class: "email" %></h3>
       </div>
+      <div class="follower_followed text-center">
+        <%= render "stats" %>
+        <% unless current_user.is? @user %>
+          <%= render "follow_form" %>
+        <% end %>
+      </div>
     </div>
-    <div class="right_form">
+    <div id="activities-body" class="right_form">
+
     </div>
   </div>
 </div>
