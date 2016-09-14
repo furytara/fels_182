@@ -1,8 +1,50 @@
+.alert-box {
+    color: #555;
+    border-radius: 10px;
+    font: bold 20px Helvetica, Verdana, sans-serif;
+    padding: 10px 10px 10px 36px;
+    margin: 10px;
+    background: #e3f7fc url('images/notice.png') no-repeat 10px 50%;
+    border: 1px solid #8ed9f6;
+    text-align: center;
+}
 #lesson_form{
   max-width: 100%;
   margin: 25px auto;
-  height: 2000px;
+  height: 2500px;
   position: relative;
   top: 55px;
-  background-color: lightblue;
+  ul {
+    margin: 20px auto;
+    background: lightblue;
+    list-style-type: none;
+    position:relative;
+    border:1px solid #bbb;
+    margin:10px 0px;padding:5px 5px 0px 5px;
+    background-color: lightblue;
+    -moz-box-shadow: inset 0 1px 1px #eeeeee;
+    -ms-box-shadow: inset 0 1px 1px #eeeeee;
+    -o-box-shadow: inset 0 1px 1px #eeeeee;
+    -webkit-box-shadow: inset 0 1px 1px #EEE;
+    box-shadow: inset 0 1px 1px #EEE;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    margin-bottom: 30px;
+    h3 {
+      font: bold 20px Helvetica, Verdana, sans-serif;
+      border-bottom: 2px solid  #403B4A;
+    }
+    li {
+      padding: 10px;
+      overflow: auto;
+      label {
+        font: 16px Georgia, Times New Roman, serif;
+      }
+      &:hover {
+        background: #cfedf7;
+        cursor: pointer;
+      }
+    }
+  }
 }
