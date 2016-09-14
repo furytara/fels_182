@@ -76,9 +76,18 @@ en:
       destroy:
         success: "Word deleted"
         fail: "This word is used in lesson and cannot be deleted"
-
+  words:
+      index:
+        learned: "Learned"
+        notlearned: "Not learned yet"
+        unfinished: "Not finished yet"
+        remember: "Remembered"
+        not-remember: "Not remembered yet"
+        all: "All"
+        learn: "Word List"
   remember_me: "Remember me"
   invalid_password: "Invalid email or password submition"
+  log-in-to-continue: "Please log-in to continue"
   edit_profile: "My profile"
   save_change: "Save changes"
   change_img: "Change"

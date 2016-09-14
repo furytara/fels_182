@@ -1,0 +1,22 @@
+<div class="main-container">
+  <div class="form-inline">
+    <h1 class="text-center "><%= t ".word-list" %></h1>
+  </div>
+  <div class="user-filter-word">
+    <%= render "filter_form" %>
+  </div>
+  <div id="words-section">
+    <% if @words.any? %>
+      <div id="words-container">
+        <%= render @words %>
+      </div>
+      <div class="pagination-container text-center">
+        <%= will_paginate @words %>
+      </div>
+    <% else %>
+      <h2><%= t ".no-record-found" %></h2>
+    <% end %>
+  </div>
+</div>
+
+

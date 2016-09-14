@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  root             "users#index"
+  get "login" => "sessions#new"
+  post "login" => "sessions#create"
+  delete "logout" => "sessions#destroy"
+  root "users#index"
   namespace :admin do
     resources :categories
     resources :words
@@ -10,4 +13,5 @@ Rails.application.routes.draw do
     resources :lessons
   end
   resources :results
+  resources :words, only: [:index]
 end

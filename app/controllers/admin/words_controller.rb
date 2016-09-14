@@ -70,8 +70,5 @@ class Admin::WordsController < ApplicationController
     params.require(:word).permit :content, :category_id,
       answers_attributes: [:id, :content, :is_true, :_destroy]
   end
-
-
-
 end
 
