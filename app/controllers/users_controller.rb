@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
-  before_action :require_logged_in_user, only: [:edit,:update]
+  before_action :require_logged_in_user
   before_action :correct_user, only: [:edit, :update]
-  before_action :load_user, only: [:show, :edit, :update]
+  before_action :load_user, except: [:index, :new, :create]
+  before_action :require_logged_in_as_admin, only: :destroy
 
   def index
     @users = User.paginate page: params[:page]
@@ -35,6 +36,12 @@ class UsersController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @user.destroy
+    flash[:success] = t "destroy_success"
+    redirect_to users_url
   end
 
   private

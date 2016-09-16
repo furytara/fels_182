@@ -72,51 +72,75 @@ a{
   }
 }
 
-#menu li:hover{
+#menu .admin {
+  line-height: 2.9em;
+  height: 3em;
+  padding-left: 1em;
+  border-bottom: 1px solid #333;
+  background-color: #ffffff;
+}
+
+#menu .nav:hover{
   background-color: #454545;
 }
 
 #menu #home a{
-  background: url("home.png") no-repeat;
+  background: image-url("home.png") no-repeat;
   background-position: center 5px;
 }
 
 #menu #login a{
-  background: url("login-2.png") no-repeat;
+  background: image-url("login-2.png") no-repeat;
   background-position: center 5px;
 }
 
 #menu #register a{
-  background: url("register.png") no-repeat;
+  background: image-url("register.png") no-repeat;
   background-position: center 5px;
 }
 
 #menu #allusers a{
-  background: url("all_users.png") no-repeat;
+  background: image-url("all_users.png") no-repeat;
   background-position: center 5px;
 }
 
 #menu #find a{
-  background: url("find.png") no-repeat;
+  background: image-url("find.png") no-repeat;
   background-position: center 5px;
 }
 
 #menu #info a{
-  background: url("info.png") no-repeat;
+  background: image-url("info.png") no-repeat;
+  background-position: center 5px;
+}
+
+#menu #lesson a{
+  background: image-url("lesson.png") no-repeat;
   background-position: center 5px;
 }
 
 #menu #history a{
-  background: url("history.png") no-repeat;
+  background: image-url("history.png") no-repeat;
   background-position: center 5px;
 }
 
-#menu #category a{
-  background: url("category.png") no-repeat;
+#menu #word a{
+  background: image-url("word.png") no-repeat;
   background-position: center 5px;
 }
+
+#menu #admin-word a{
+  background: image-url("abc.png") no-repeat;
+  background-position: center 5px;
+}
+
+#menu #admin-category a{
+  background: image-url("admin_category.png") no-repeat;
+  background-position: center 5px;
+}
+
 #menu #logout a{
-  background: url("signout.png") no-repeat;
+  background: image-url("signout.png") no-repeat;
   background-position: center 5px;
 }
 

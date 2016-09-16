@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   attr_accessor :remember_token
   before_save {email.downcase!}
-  has_many :lessons
+  has_many :lessons, dependent: :destroy
   has_many :activities
   has_many :active_relationships, class_name: Relationship.name,
     foreign_key: "follower_id", dependent: :destroy
@@ -27,6 +27,22 @@ class User < ActiveRecord::Base
     def new_token
       SecureRandom.urlsafe_base64
     end
+  end
+
+  def follow user
+    active_relationships.create followed_id: user.id
+  end
+
+  def unfollow user
+    active_relationships.find_by(followed_id: user.id).destroy
+  end
+
+  def following? user
+    following.include? user
+  end
+
+  def is? user
+    self == user
   end
 
   def remember

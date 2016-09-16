@@ -1,4 +1,5 @@
 class Admin::CategoriesController < ApplicationController
+  before_action :require_logged_in_user, :require_logged_in_as_admin
   before_action :load_category, only: [:edit, :update, :destroy]
 
   def index

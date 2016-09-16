@@ -1,0 +1,3 @@
+$('#activities-body').html('<%=
+  escape_javascript(render partial: "users/show_follow",
+  locals: {users: @users}) %>')

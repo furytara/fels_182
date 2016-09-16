@@ -6,6 +6,13 @@ module GeneralMethodsHelper
     end
   end
 
+  def require_logged_in_as_admin
+    unless current_user.is_admin?
+      log_out
+      redirect_to root_path
+    end
+  end
+
   def correct_user
     @user = User.find_by id: params[:id]
     redirect_to root_url unless @user.is_user? current_user

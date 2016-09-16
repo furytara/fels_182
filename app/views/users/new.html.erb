@@ -1,12 +1,5 @@
 <% provide :title, t("sign_up") %>
 <div id="content">
-  <div class="whereheader">
-    <%= link_to t("sign_up"), "#", class: "large" %>
-    <ul>
-      <li><%= link_to t("sign_in"), "#" %></li>
-      <li class="last"><%= link_to t("sign_up"), "#" %></li>
-    </ul>
-  </div>
   <div id="signupform">
     <%= form_for @user do |f| %>
       <%= render "shared/error_messages", object: f.object %>
