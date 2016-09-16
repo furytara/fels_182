@@ -13,7 +13,8 @@
         </li>
         <li id="info" class="nav"><%= link_to t("profile"),
           edit_user_path(current_user) %></li>
-        <li id="history" class="nav"><%= link_to t("contact"), "#" %></li>
+        <li id="history" class="nav"><%= link_to t("contact"),
+          lessons_path %></li>
         <li id="category" class="nav">
           <% if current_user.is_admin? %>
             <%= link_to t("admin.categories.name-singular"),

@@ -1,0 +1,40 @@
+<% provide :title, t("finished_lessons") %>
+<div id="content">
+  <div class="whereheader">
+    <%= link_to t("finished_lessons"),
+      lessons_path, class: "large" %>
+  </div>
+  <div id="lessons">
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th><%= t("index") %></th>
+            <th><%= t("category") %></th>
+            <th><%= t("results") %></th>
+            <th><%= t("created_at") %></th>
+            <th><%= t("action") %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @lessons.each_with_index do |lesson, index| %>
+            <tr>
+              <td><%= index + 1 %></td>
+              <td><%= lesson.category.name %></td>
+              <td><%= "#{lesson.results.count_correct_answer}
+                #{t"Result"} #{Settings.word_per_page}" %></td>
+              <td>
+                <%= lesson.created_at
+                  .strftime(I18n.t "time.formats.default") %>
+              </td>
+              <td>
+                <%= link_to t("here"), edit_category_lesson_path(lesson.category, lesson) %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <%= will_paginate @lessons %>
+    </div>
+  </div>
+</div>

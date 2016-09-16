@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   post "login" => "sessions#create"
   delete "logout" => "sessions#destroy"
   root "users#index"
+  get "lessons" => "lessons#index"
   namespace :admin do
     resources :categories
     resources :words

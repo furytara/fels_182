@@ -38,7 +38,11 @@
           <% end %>
         </ul>
       <% end %>
-      <%= f.submit t("finish"), class: "btn btn-primary" %>
+      <% if @messages[:total_correct_answers] == Settings.word_per_page %>
+        <% @lesson.update_attributes is_finished: true %>
+      <% else %>
+        <%= f.submit t("finish"), class: "btn btn-primary" %>
+      <% end %>
     <% end %>
   </div>
 </div>
