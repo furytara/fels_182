@@ -39,6 +39,11 @@ class LessonsController < ApplicationController
   def show
   end
 
+  def index
+    @lessons = Lesson.paginate(page: params[:page])
+      .per_page Settings.page_size
+  end
+
   private
   def lesson_params
     params.require(:lesson).permit results_attributes: [:id, :answer_id]

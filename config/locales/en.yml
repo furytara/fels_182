@@ -114,3 +114,13 @@ en:
   sorry: "Sorry!"
   wrong_answer: "Change a few things up and try submitting again."
   messages_result: "The result of your learning is   "
+  finished_lessons: "Finished lessons"
+  index: "No."
+  category: "Category name"
+  results: "Score"
+  created_at: "Learned at"
+  action: "Detail"
+  here: ">>"
+  time:
+    formats:
+      default: "%A, %d. %B %Y, %H:%M"
