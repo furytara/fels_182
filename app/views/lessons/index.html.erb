@@ -22,7 +22,7 @@
               <td><%= index + 1 %></td>
               <td><%= lesson.category.name %></td>
               <td><%= "#{lesson.results.count_correct_answer}
-                #{t"Result"} #{Settings.word_per_page}" %></td>
+                #{t"Result"} #{Settings.word_per_lesson}" %></td>
               <td>
                 <%= lesson.created_at
                   .strftime(I18n.t "time.formats.default") %>
