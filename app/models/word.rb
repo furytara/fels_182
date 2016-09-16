@@ -8,8 +8,28 @@ class Word < ActiveRecord::Base
   before_save :update_updated_at_field
   accepts_nested_attributes_for :answers, allow_destroy: true
   scope :by_category, ->(category_id) do
-    condition = category_id.blank? ? nil : "category_id = #{category_id}"
+    condition = category_id.blank? ? nil : "words.category_id = #{category_id}"
     where(condition).order updated_at: :desc
+  end
+  scope :by_user_id, -> id do
+    where(users: {id: id})
+  end
+  scope :learned, ->(user) do
+    joins(results: {lesson: :user}).by_user_id(user.id).distinct
+  end
+  scope :remembered, ->(user) do
+    joins(results: [{lesson: :user}, :answer])
+      .by_user_id(user.id).where(answers: {is_true: true}).distinct
+  end
+  scope :not_remembered, ->(user) do
+    joins(results: [{lesson: :user}, :answer])
+      .by_user_id(user.id).where(answers: {is_true: false}).distinct
+  end
+  scope :not_learned, ->(user) do
+    where.not(id: joins(results: {lesson: :user}).by_user_id(user.id)).distinct
+  end
+  scope :unfinished, ->(user) do
+    joins(results: {lesson: :user}).by_user_id(user.id).where(results: {answer_id: nil}).distinct
   end
 
   def invalid_to_delete?

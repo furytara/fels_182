@@ -1,0 +1,15 @@
+<%= form_tag words_path, method: :get, class: "form-inline" do %>
+  <%= label_tag "#", t("admin.categories.name-singular") %>
+  <%= select_tag :category_id,
+    options_from_collection_for_select(@categories, :id, :name,
+    params[:category_id]),
+    {include_blank: t("all"), class: "form-control"} %>
+  <% @list_filter.each do |field| %>
+    <div class="filter-by">
+      <%= radio_button_tag :filter_by, field.first,
+        params[:filter_by] == field.first.to_s %>
+      <%= label_tag "", field.second %>
+    </div>
+  <% end %>
+  <%= submit_tag t("filter"), class: "form-control" %>
+<% end %>

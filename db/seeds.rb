@@ -22,10 +22,10 @@ User.create! fullname: "Admin User",
 end
 
 # Categories
-40.times do |n|
+40.times do
   name  = Faker::Name.name
   description = Faker::Lorem.sentence
-  Category.create! name:  name, description: description
+  Category.create! name: name, description: description
 end
 
 # Words
@@ -47,11 +47,11 @@ end
 # Lessons
 categories.each do |category|
   lesson = Lesson.new user: User.first, category: category
+  lesson.save
   words = category.words.take 10
   words.each do |word|
-    result = Result.new word: word
-    lesson.results << result
+    result = Result.new word: word, lesson: lesson, answer: word.answers.first
+    result.save
   end
-  lesson.save
 end
 
