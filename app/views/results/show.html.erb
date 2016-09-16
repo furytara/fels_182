@@ -1,7 +1,7 @@
 <% provide :title, @lesson.category.name %>
 <% if @messages[:is_finished] == 1 %>
   <%= "#{@messages[:correct_answers]} #{t("Result")}
-    #{Settings.word_per_page}" %>
+    #{Settings.word_per_lesson}" %>
 <% end %>
 <div id="content">
   <div class="whereheader">
@@ -21,7 +21,9 @@
           <% end %>
         </ul>
       <% end %>
-      <%= f.submit t("finish"), class: "btn btn-primary" %>
+      <div class ="submit">
+        <%= f.submit t("finish"), class: "btn btn-primary" %>
+      </div>
     <% end %>
   </div>
 </div>

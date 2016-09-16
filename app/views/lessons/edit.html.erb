@@ -3,7 +3,7 @@
   <% if @messages[:is_finished] == 1 %>
   <div class="alert-box">
     <%= "#{t("messages_result")} #{@messages[:total_correct_answers]}
-      #{t("Result")} #{Settings.word_per_page}" %>
+      #{t("Result")} #{Settings.word_per_lesson}" %>
   </div>
 <% end %>
   <div class="whereheader">
@@ -38,10 +38,12 @@
           <% end %>
         </ul>
       <% end %>
-      <% if @messages[:total_correct_answers] == Settings.word_per_page %>
+      <% if @messages[:total_correct_answers] == Settings.word_per_lesson %>
         <% @lesson.update_attributes is_finished: true %>
       <% else %>
-        <%= f.submit t("finish"), class: "btn btn-primary" %>
+        <div class ="submit">
+          <%= f.submit t("finish"), class: "btn btn-primary" %>
+        </div>
       <% end %>
     <% end %>
   </div>

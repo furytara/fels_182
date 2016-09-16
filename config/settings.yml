@@ -1,3 +1,4 @@
 page_size: 10
 word_per_page: 1
 answers_num_default: 4
+word_per_lesson: 5
