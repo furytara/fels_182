@@ -4,7 +4,7 @@ class Result < ActiveRecord::Base
   belongs_to :answer
   validates :lesson, presence: true
   validates :word, presence: true
-  scope :filter_by_word, ->(word_id) do
-    where(word_id: word_id) unless word_id.blank?
+  scope :count_correct_answer, -> do
+    joins(:answer).where(answers: {is_true: true}).count
   end
 end

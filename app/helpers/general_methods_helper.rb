@@ -18,4 +18,12 @@ module GeneralMethodsHelper
       redirect_to root_url
     end
   end
+
+  def load_lesson
+    @lesson = Lesson.find_by id: params[:id]
+    if @lesson.nil?
+      flash[:danger] = t "Nil_lesson"
+      redirect_to root_url
+    end
+  end
 end

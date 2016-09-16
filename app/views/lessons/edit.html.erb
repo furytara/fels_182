@@ -1,0 +1,44 @@
+<% provide :title, @lesson.category.name %>
+<div id="content">
+  <% if @messages[:is_finished] == 1 %>
+  <div class="alert-box">
+    <%= "#{t("messages_result")} #{@messages[:total_correct_answers]}
+      #{t("Result")} #{Settings.word_per_page}" %>
+  </div>
+<% end %>
+  <div class="whereheader">
+    <%= link_to @lesson.category.name,
+      category_lesson_path(@lesson.category, @lesson), class: "large" %>
+  </div>
+  <div id="lesson_form">
+    <%= form_for [:category, @lesson], url: category_lesson_path(@lesson.category, @lesson), method: :put do |f| %>
+      <%= f.fields_for :results do |results_field| %>
+        <ul>
+          <h3><%= results_field.object.word.content %></h3>
+          <% results_field.object.word.answers.each do |answer| %>
+            <li>
+              <%= results_field.radio_button :answer_id, answer.id %>
+              <label><%= answer.content %></label>
+              <% if answer == results_field.object.answer &&
+                @messages[:is_finished] == 1 %>
+                <% if answer == results_field.object.word.answers
+                .find_correct_answer && @messages[:is_finished] == 1 %>
+                  <div class="alert alert-success" role="alert">
+                    <strong><%= t("well_done") %></strong>
+                    <%= t("right_answer") %>
+                  </div>
+                <% else %>
+                  <div class="alert alert-danger" role="alert">
+                    <strong><%= t("sorry") %></strong>
+                    <%= t("wrong_answer") %>
+                  </div>
+                <% end %>
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+      <% end %>
+      <%= f.submit t("finish"), class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

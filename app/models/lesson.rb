@@ -1,5 +1,5 @@
 class Lesson < ActiveRecord::Base
-  before_create :create_word_for_specify_lesson
+  after_create :create_word_for_specify_lesson
   belongs_to :user
   belongs_to :category
   has_many :results, dependent: :destroy
