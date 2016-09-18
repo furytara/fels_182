@@ -11,7 +11,7 @@ User.create! fullname: "Admin User",
              password_confirmation: "password",
              is_admin: true
 
-49.times do |n|
+5.times do |n|
   name  = Faker::Name.name
   email = "Test-#{n+1}@gmail.com"
   password = "password"
@@ -24,23 +24,22 @@ end
 # Following relationships
 users = User.all
 user  = users.first
-following = users[2..20]
-followers = users[3..10]
+following = users[2..3]
+followers = users[3..4]
 following.each {|followed| user.follow(followed)}
 followers.each {|follower| follower.follow(user)}
 
 
 # Categories
-40.times do
+5.times do
   name  = Faker::Name.name
   description = Faker::Lorem.sentence
   Category.create! name: name, description: description
 end
 
 # Words
-categories = Category.order(:created_at).take 20
-
-30.times do
+categories = Category.order(:created_at).take 4
+5.times do
   content = Faker::Lorem.word
   categories.each do |category|
     right_answer = rand(0..Settings.answers_num_default-1)

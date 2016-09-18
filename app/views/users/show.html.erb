@@ -25,15 +25,10 @@
         <% end %>
       </div>
     </div>
-    <div class="right_form">
+    <div class="right_form" id="activities-body">
       <ul class="timeline">
       <% @user.activities.each do |activity| %>
-        <li>
-          <p class="timeline-date"></p>
-            <div class="timeline-content">
-            <h3></h3>
-          <p><%= activity.load_activity activity.action_type %></p>
-        </li>
+        <%= display_activity activity %>
       <% end %>
     </ul>
     </div>

@@ -4,7 +4,7 @@ class Activity < ActiveRecord::Base
   validates :user, presence: true
   enum action_type: [:follow, :unfollow, :create_lesson, :update_lesson]
 
-  def load_activity action_type
+  def load_activity
     case action_type
       when "follow", "unfollow"
         followed = find_follow
